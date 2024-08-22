@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Res, Query } from '@
 import { UsuariosService } from './usuarios.service';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
-import { Response } from 'express'; 
+import {  Response } from 'express'; // Add this line to import the Response type
 import { ApiQuery, ApiResponse } from '@nestjs/swagger';
 
 @Controller('usuarios')
