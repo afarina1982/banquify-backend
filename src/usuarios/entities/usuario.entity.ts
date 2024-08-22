@@ -1,9 +1,12 @@
+import { CuentasVista } from "src/cuentas-vista/entities/cuentas-vista.entity";
+
 export class Usuario {
-    public id: number; // identificador numérico único, generado automáticamente
-    public nombre: string; // nombre del usuario
-    public correoElectronico: string; // correo electrónico del usuario
-    public contrasena: string; // contraseña del usuario
-    public puntosAcumulados: number; // número de puntos de recompensa acumulados
+    public id: number; 
+    public nombre: string; 
+    public correoElectronico: string; 
+    public contrasena: string; 
+    public puntosAcumulados: number; 
+    public cuentasVista: CuentasVista[]; 
 
     constructor(id: number, nombre: string, correoElectronico: string, contrasena: string) {
         this.id = id;
@@ -11,9 +14,8 @@ export class Usuario {
         this.correoElectronico = correoElectronico;
         this.contrasena = contrasena;
         this.puntosAcumulados = 0;
-    }
-    
+        this.cuentasVista = []; 
+    }   
 }
-
 
 

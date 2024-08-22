@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Res, Query } from '@
 import { UsuariosService } from './usuarios.service';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
-import { response, Response } from 'express'; // Add this line to import the Response type
+import { Response } from 'express'; 
 import { ApiQuery, ApiResponse } from '@nestjs/swagger';
 
 @Controller('usuarios')
@@ -23,7 +23,7 @@ export class UsuariosController {
 
   @Get(':id')
   @ApiResponse({ status: 200, description: 'Usuario encontrado exitosamente.' })
-  @ApiResponse({ status: 404, description: 'Solicitud inválida. Usuario No Existe' })
+  @ApiResponse({ status: 404, description: 'Usuario con ID ${createCuentasVistaDto.idUsuario} no encontrado' })
   findOne(@Param('id') id: string, @Res() response: Response) {
     const usuario = this.usuariosService.findOne(+id);
     if (usuario) {
@@ -56,6 +56,7 @@ export class UsuariosController {
       response.status(200).send({ message: 'Usuario Borrado' });
     } else {
       response.status(404).send({ error: 'Solicitud inválida. Usuario No Existe' });
+      
     }
   }
 }

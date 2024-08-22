@@ -7,5 +7,7 @@ export class CreateUsuarioDto {
     public correoElectronico: string; // correo electrónico del usuario
     @ApiProperty({ default: '12345' })
     public contrasena: string; // contraseña del usuario
+    @ApiProperty({ default: [] })
+    public cuentasVista: number[]; 
     
 }
