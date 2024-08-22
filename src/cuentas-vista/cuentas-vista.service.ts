@@ -31,7 +31,6 @@ export class CuentasVistaService {
 
     return nuevaCuentaVista;
 }
-
   findAll(habilitada?: boolean): CuentasVista[] {
     if (habilitada == undefined) {
       return this.cuentasVista;

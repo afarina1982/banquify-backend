@@ -23,7 +23,7 @@ export class UsuariosService {
     // Agregar cuentas vista al usuario si están presentes en el DTO
     if (createUsuarioDto.cuentasVista && createUsuarioDto.cuentasVista.length > 0) {
         for (const cuentaId of createUsuarioDto.cuentasVista) {
-            const cuentaVista = new CuentasVista(cuentaId, nuevoUsuario.id, true); // Crear una cuenta vista habilitada por defecto
+            const cuentaVista = new CuentasVista(cuentaId, nuevoUsuario.id, true); 
             nuevoUsuario.cuentasVista.push(cuentaVista);
         }
     }
@@ -55,7 +55,7 @@ export class UsuariosService {
   findOne(id: number): Usuario {
     const usuario = this.usuario.find((usuario) => usuario.id == id);
 
-    // Asegurarse de que cuentasVista esté siempre presente como un array vacío si no tiene cuentas
+    
     if (usuario && !usuario.cuentasVista) {
       usuario.cuentasVista = [];
     }
