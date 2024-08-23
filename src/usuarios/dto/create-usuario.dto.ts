@@ -1,16 +1,17 @@
+
 import { ApiProperty } from "@nestjs/swagger";
+import { CreateCuentasVistaDto } from "src/cuentas-vista/dto/create-cuentas-vista.dto";
 
 export class CreateUsuarioDto {
-    @ApiProperty({ default: 'Su Nombre' })
-    public nombre: string; // nombre del usuario
-    
-    @ApiProperty({ default: 'Su Correo Electrónico' })
-    public correoElectronico: string; // correo electrónico del usuario
+    @ApiProperty({ description: "Nombre del usuario", default: "Juan Pérez" })
+    nombre: string;
 
-    @ApiProperty({ default: '12345' })
-    public contrasena: string; // contraseña del usuario
+    @ApiProperty({ description: "Correo electrónico del usuario", default: "juan.perez@example.com" })
+    correoElectronico: string;
 
-    @ApiProperty({ default: [] })
-    public cuentasVista: number[]; 
-    
+    @ApiProperty({ description: "Contraseña del usuario", default: "12345" })
+    contrasena: string;
+
+    @ApiProperty({ description: "Cuentas vista asociadas", type: [CreateCuentasVistaDto], default: [] })
+    cuentasVista: CreateCuentasVistaDto[];
 }
